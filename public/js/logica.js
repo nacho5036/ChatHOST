@@ -1,7 +1,7 @@
 (function(){
   
   const app = document.querySelector(".app")
-  const socket = io();
+  const socket = io(); 
 
   let uname;
 
