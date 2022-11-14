@@ -18,7 +18,7 @@
 
   app.querySelector(".chat-screen #send.message").addEventListener("click", function(){
     let message = app.querySelector(".chat-screen #message-input").value; 
-    if(message.lenght == 0){
+    if(message.length == 0){
       return;
     }
     renderMessage("my",{
