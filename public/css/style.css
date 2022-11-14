@@ -97,8 +97,7 @@ body {
 }
 .chat-screen .messages {
     width: 100%;
-    height: calc(100% - 100px);
-    background-image: url(/public/background.jpg); 
+    height: calc(100% - 100px); 
     overflow: auto;
 }
 .chat-screen .messages .message {
