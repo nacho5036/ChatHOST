@@ -1,25 +1,27 @@
-const express = require('express');
-var app = require('express')();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+const express = require("express");
+const path = require("path");
 
-app.set('port',process)
+const app = express();
+const server = require("http").createServer(app);
 
-app.use(express.static('public'));
-server.listen(3000, () => console.log('Servidor iniciado en 3000'));
+const io = require("socket.io")(server); 
+app.use(express.static(path.join(__dirname+"/public"))); 
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + 'public');
-});
-
-io.on('connection', function (socket) {
-  console.log('socket conectado',socket.id);
-  io.emit('conectado', {
-    texto: 'Nuevo socket conectado: ',
-    id: socket.id,
+io.on("connection", function(socket){
+  socket.on("newuser", function(username){
+    socket.broadcast.emit("update", username + " se unió a la conversación"); 
+  }); 
+  socket.on("exituser", function(username){
+    socket.broadcast.emit("update", username + " salió de la conversación"); 
   });
+  socket.on("chat", function(message){
+    socket.broadcast.emit("chat", message); 
+  });
+}); 
 
-  socket.on('disconnect', () => {
+server.listen(3000); 
+
+ /*socket.on('disconnect', () => {
   	console.log('socket desconectado',socket.id);
     io.emit('desconectado', {
       texto: 'Socket desconectado.', 
@@ -35,4 +37,4 @@ socket.on('chat:escribiendo', (usuario) =>{
   socket.broadcast.emit('chat:escribiendo', usuario);
 });
 
-}); 
+});*/ 
