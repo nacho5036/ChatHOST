@@ -7,15 +7,13 @@
     "express": "^4.15.2",
     "install": "^0.8.8",
     "nodemon": "^2.0.20",
-    "socket.io": "^1.7.2"
+    "socket.io": "^4.5.3"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "nodemon run",
-    "dev":"nodemon app.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC"
 }
- 
