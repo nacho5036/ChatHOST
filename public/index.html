@@ -5,12 +5,20 @@
     <title>Socket Basico</title>
   </head>
   <body>
-    <h1>Usuarios:</h1>
-    <div id="notificaciones"></div>
+    <center><h1>Chat</h1></center>
+    <div class="card">
+      <div id="chat">
+        <div id="notificaciones"></div>
+      </div>
+      <input type="text" id="usuario" placeholder="Usuario" class="text-success" required>
+      <input type="text"  name="" id="mensaje" placeholder="Mensaje" class="text-success" required>
+      <button class="enviar" id="enviar">Enviar</button> 
+    </div>
     
+    <div id="salida"></div>
+    <ul id="not"></ul> 
+
     <script src="js/socket.io.js"></script>
-    <script src="js/logica.js" charset="utf-8"></script>
-    
-    
+    <script src="js/logica.js" charset="utf-8"></script>   
   </body>
 </html>
